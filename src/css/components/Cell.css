@@ -1,0 +1,56 @@
+.cell {
+    width: calc(100% / 8);
+    height: calc(100% / 8);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell--brown {
+    background-color: rgb(192, 129, 107);
+}
+
+.cell--brown--select {
+    background-color: rgb(218, 85, 37);
+}
+
+.cell--green--move {
+    background-color: #a13409;
+}
+
+.cell--yellow {
+    background-color: rgb(253, 245, 174);
+}
+
+.black {
+    width: 70%;
+    height: 70%;
+    background-color: #000000;
+    box-shadow: 0px 0px 5px #808080;
+    border-radius: 70%;
+}
+
+.black--king {
+    width: 70%;
+    height: 70%;
+    background-color: #333333;
+    box-shadow: 0px 0px 10px #808080;
+    border-radius: 70%;
+}
+
+.white {
+    width: 70%;
+    height: 70%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px #000000;
+    border-radius: 70%;
+}
+
+.white--king {
+    width: 70%;
+    height: 70%;
+    background-color: #cfcbcb;
+    box-shadow: 0px 0px 10px #000000;
+    border-radius: 70%;
+}

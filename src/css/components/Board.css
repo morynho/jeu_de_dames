@@ -1,0 +1,8 @@
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 85vh;
+    height: 85vh;
+    margin: 2vh;
+    box-sizing: border-box;
+}

@@ -1,0 +1,3 @@
+export const SET_SELECT_PIECE = "SET_SELECT_PIECE";
+export const SET_PIECE_MOVE = "SET_PIECE_MOVE";
+export const SET_RESTART = "SET_RESTART";
