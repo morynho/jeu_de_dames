@@ -8,10 +8,11 @@ import "./css/App.css";
 
 function App({ dispatch, isFinish, currentPlayer }) {
     if (isFinish[0]) {
+        const color = isFinish[1].color === "black" ? "noir" : "blanc";
         Swal.fire({
             icon: "success",
             title: "Jeu de dames",
-            text: "Victoire des pions " + isFinish[1].color,
+            text: "Victoire des pions " + color,
         });
     }
 

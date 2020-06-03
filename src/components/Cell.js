@@ -4,7 +4,17 @@ import PropTypes from "prop-types";
 import { setSelectPiece, setPieceMove } from "../actions";
 import "../css/components/Cell.css";
 
-const Cell = ({ item, row, column, currentPlayer, dispatch, select, move, isFinish }) => {
+const Cell = ({
+    item,
+    row,
+    column,
+    currentPlayer,
+    dispatch,
+    select,
+    move,
+    isFinish,
+    isNext,
+}) => {
     if (item === null) return <div className="cell cell--yellow"></div>;
     else {
         return (
@@ -17,16 +27,20 @@ const Cell = ({ item, row, column, currentPlayer, dispatch, select, move, isFini
                         : "cell--brown"
                 }`}
                 onClick={() => {
-                    !isFinish && move && dispatch(setPieceMove(row, column));
+                    !isFinish && move && dispatch(setPieceMove(row, column, item));
                 }}
             >
                 {item !== "" && (
                     <div
                         className={item}
                         onClick={() => {
-                            !isFinish &&
-                                item.startsWith(currentPlayer.color) &&
-                                dispatch(setSelectPiece(row, column, item));
+                            if (!isNext) {
+                                !isFinish &&
+                                    item.startsWith(currentPlayer.color) &&
+                                    dispatch(setSelectPiece(row, column, item));
+                            } else {
+                                select && dispatch(setSelectPiece(row, column));
+                            }
                         }}
                     ></div>
                 )}
@@ -39,6 +53,7 @@ const mapStateToProps = (state) => {
     return {
         currentPlayer: state.currentPlayer,
         isFinish: state.isFinish[0],
+        isNext: state.isNext,
     };
 };
 
@@ -53,6 +68,7 @@ Cell.propTypes = {
     dispatch: PropTypes.func.isRequired,
     select: PropTypes.bool,
     move: PropTypes.bool,
+    isNext: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps)(Cell);
